@@ -22,6 +22,6 @@ fields:
     label: Text
     type:  markdown
   toggleprojects:
-    label: Display Projects on Home Page
-    type: toggle
-    text: yes/no
+    label: Toggle
+    type: checkbox
+    text: Display Projects on Home Page

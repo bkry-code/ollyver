@@ -19,6 +19,6 @@ fields:
     help: You can add a line that appears directly under the page title.
     width: 1/2
   togglenotes:
-    label: Display Recent Notes on Home Page
-    type: toggle
-    text: yes/no
+    label: Toggle
+    type: checkbox
+    text: Display Recent Notes on Home Page
