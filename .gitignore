@@ -12,6 +12,7 @@ sftp-config.json
 # don't use this folder names for other than kirby content
 # this also works for kirby multisite
 site/accounts/*
+site/cache/*
 /thumbs/*
 /content/*
 assets/avatars/*
