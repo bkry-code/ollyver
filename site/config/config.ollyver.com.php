@@ -56,4 +56,4 @@ c::set('plugin.ga.debug', false);
 c::set('panel.stylesheet', 'assets/css/panel.css');
 
 // SCSS plugin setting for dev environment only
-c::set('scssNestedCheck', true);
+// c::set('scssNestedCheck', true);
