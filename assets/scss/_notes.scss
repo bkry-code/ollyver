@@ -1,0 +1,49 @@
+.notes {
+	padding-top: 1em;
+	h2 {
+		font-family: Advocate C53;
+		text-transform: lowercase;
+		font-size: 1.5em;
+		margin-bottom: 1em;
+	}
+	li {
+		margin-bottom: 1em;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	h3 {
+		font-family: Concourse T3;
+		font-size: 1.5em;
+		display: inline-block;
+		padding-right: 0.6667em;
+	}
+	span {
+		color: #ccc;
+		display: block;
+	}
+	a {
+		@include border-radius(8px);
+		&:hover {
+			background: #fbf3f3;
+		}
+	}
+}
+
+header + .notes {
+	padding-top: 0;
+}
+
+@media screen and (min-width: 600px) {
+
+	.notes {
+		span {
+			display: inline-block;
+		}
+	}
+
+	article + .notes {
+		padding-top: 2em;
+	}
+
+}

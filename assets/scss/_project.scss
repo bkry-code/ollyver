@@ -1,0 +1,336 @@
+/* Fancy Select Module */
+
+.fancy-select {
+	@include no-user-select;
+	position: relative;
+	.options {
+		margin: 0;
+		position: absolute;
+		top: 2.9em;
+		right: 0;
+		display: none;
+		opacity: 0;
+		max-height: 300px;
+		overflow: auto;
+		background: black;
+		min-width: 100%;
+		&.open {
+			display: block;
+			top: 2.9em;
+			opacity: 1;
+			z-index: 50;
+		}
+		&.overflowing {
+			top: auto;
+			bottom: 2.9em;
+			&.open {
+				top: auto;
+				bottom: 2.9em;
+			}
+		}
+		li {
+			padding: 1em 12px;
+			color: rgba(255, 255, 255, 0.5);
+			cursor: pointer;
+			white-space: nowrap;
+			&.selected {
+				background: #7e7a7a;
+				color: white;
+			}
+			&.hover {
+				color: #fff;
+			}
+		}
+	}
+	&.disabled {
+		opacity: 0.5;
+	}
+	.trigger {
+		cursor: pointer;
+		padding: 1em 0;
+		line-height: 1em;
+		position: relative;
+		background: white;
+		&:after {
+			content: "▼";
+			font-size: 0.6667em;
+			display: block;
+			position: absolute;
+			top: 1.6em;
+			right: 1em;	
+		}
+	}
+}
+
+/* Filter Module */
+
+#filter {
+	clear: both;
+	width: 100%;
+	margin: 0;
+	background-color: #fbf3f3;
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	h3 {
+		font-family: $font-text-caps;
+		text-transform: lowercase;
+		font-size: 0.8em;
+		line-height: 1em;
+		padding: 1.25em 1.25em 0;
+	}
+	.controls {
+		font-size: 0.8em;
+		line-height: 1em;
+		float: left;
+		width: 100%;
+		padding: 1.25em;
+		@include border-box;
+	}
+	.filter-select {
+		position: relative;
+		float: left;
+		width: 100%;
+		text-align: center;	
+	}
+	.filter-select + .filter-select {
+		margin-top: 1.25em;
+	}
+	.filter-button {
+		border: 0;
+		padding: 1em 0;
+		margin: 0;
+		background: white;
+		display: inline;
+		float: left;
+		width: 50%;	
+		&.active {
+			background-color: rgba(0, 0, 0, 0.25);
+			color: white;
+			font-weight: bold;	
+		}
+	}
+	#archive-filter {
+		float: left;
+		width: 40%
+	}
+}
+
+@media (min-width: 650px) {
+
+	#filter {
+		padding: 0 1em;
+		@include border-box;
+		h3 {
+			width: 15%;
+			float: left;
+			@include border-box;
+			line-height: 2.5em;
+		}
+		.controls {
+			float: left;
+			width: 85%;
+			@include border-box;
+		}
+		.filter-select {
+			float: left;
+			width: 50%;
+			@include border-box;
+			&:first-child {
+				padding-right: 0.625em;
+			}
+			&:last-child {
+				padding-left: 0.625em;
+			}
+		}
+		.filter-select + .filter-select {
+			margin-top: 0;
+		}
+	}
+	
+}
+
+/* Archive Module */
+
+#archive {
+	clear: both;
+	position: relative;
+	padding: 0.5em;
+	overflow: hidden;
+	z-index: 1;
+	background: #000;
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	.mix {
+		display: none;
+	}
+}
+
+.no-js #archive .mix {
+	display: inline-block
+}
+
+.issue-card {
+	overflow: hidden;
+	position: relative;
+	display: block;
+	float: left;
+	width: calc(50% - 1em);
+	margin: 0.5em;
+	@include border-box;
+	a {
+		display: block;
+		color: #fff;
+		&:hover {
+			header h1 {
+				opacity: 0;
+			}
+			figure img.unveiled {
+				opacity: 1;
+			}
+		}
+	}
+	header {
+		z-index: 1000;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		text-align: center;
+		padding: 30% 1em;
+		h1 {
+			font-family: $font-header-h1;
+			line-height: 1em;
+			@include transition(opacity, 0.6s, ease);
+		}
+	}
+	figure {
+		-webkit-backface-visibility: hidden;
+    	-webkit-transform: translateZ(0) scale(1.0, 1.0);
+		position: relative;
+		background: #1a1a1a;
+		img {
+			-webkit-backface-visibility: hidden;
+    		-webkit-transform: translateZ(0) scale(1.0, 1.0);
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			margin: 0 0 3em;
+			opacity: 0;
+			@include transition(opacity, 0.3s, ease-in);
+			&.unveiled {
+				opacity: 0.5;
+				@include transition(opacity, 0.35s, ease);
+			}
+		}
+		&:before {
+			content: "";
+			display: block;
+			padding-top: 125%;
+		}
+	}
+}
+
+@media screen and (min-width: 650px) {
+
+	#archive {
+		padding: 1em;
+	}
+
+	.issue-card {
+		margin: 1em;
+		width: calc(50% - 2em);
+	}
+
+}
+
+@media screen and (min-width: 800px) {
+
+	.issue-card {
+		width: calc(33.3333% - 2em);
+	}
+
+}
+
+@media screen and (min-width: 1000px) {
+
+	.issue-card {
+		width: calc(25% - 2em);
+	}
+
+}
+
+@media screen and (min-width: 1300px) {
+
+	.issue-card {
+		width: calc(20% - 2em);
+	}
+
+}
+
+/* Pagination Module */
+
+.pager-list {
+	clear: both;
+	width: 100%;
+	margin: 0;
+	padding: 1em 0 0 0;
+	text-align: center;
+	&:before,
+	&:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+	&.no-pagers {
+		display: none;
+	}
+}
+
+.pager-button {
+	font-size: 0.8em;
+	line-height: 1em;
+	display: inline-block;
+	@include border-box;
+	margin-bottom: 1.25em;
+	padding: 1em 0.75em;
+	background-color: rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	@include transition(all, 0.3s, ease);
+	&.active {
+		background-color: rgba(0, 0, 0, 0.25);
+		font-weight: bold;
+		&:hover {
+			opacity: 1;
+		}
+	}
+	&.disabled {
+		color: rgba(0, 0, 0, 0.25);
+		cursor: default;
+		opacity: 0.5;
+		&:hover {
+			opacity: 0.5;
+		}
+	}
+	&:hover {
+		opacity: 0.5;
+	}
+}

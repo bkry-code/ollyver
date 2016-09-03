@@ -1,0 +1,27 @@
+# system      #
+###############
+.DS_Store
+
+# sftp config #
+###############
+sftp-config.json
+
+# kirby       #
+###############
+# these directories will be ignored wherever they are
+# don't use this folder names for other than kirby content
+# this also works for kirby multisite
+site/accounts/*
+/thumbs/*
+/content/*
+assets/avatars/*
+/assets/fonts/*
+/assets/css/*
+
+# composer    #
+###############
+# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock
+# composer.phar
+# /vendor/

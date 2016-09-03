@@ -1,0 +1,281 @@
+@import "_fonts.scss";
+@import "_resets.scss";
+@import "_mixins.scss";
+@import "_animations.scss";
+
+/* Font Stacks */
+
+$font-text-default: -apple-system, BlinkMacSystemFont, Lucida Grande, Helvetica, Arial, sans-serif;
+$font-text-regular: Concourse T3;
+$font-text-caps: Concourse C3;
+$font-text-caps-bolder: Concourse C4;
+$font-text-caps-bold: Concourse C6;
+$font-text-index: Concourse T3 Index;
+
+$font-header-h1: Concourse T6;
+
+/* Colour Pallettes */
+
+$color-pro-green: #C9CEC9;
+
+/* ------------------- */
+/* General             */
+/* ------------------- */
+
+@import "_general.scss";
+
+/* ------------------- */
+/* Article Section     */
+/* ------------------- */
+
+// .main {
+// 	@include animation-fade-in-up(0.5s);
+// }
+
+.page-article {
+	max-width: 34em;
+	margin: 0 auto 1em;
+	padding: 0 1em;
+	@include border-box;
+	header {
+		text-align: center;
+		padding: 1em 0;
+		h1 {
+			font-family: $font-header-h1;
+			font-size: 2em;
+			line-height: 100%;
+			outline-style: none;
+			margin-bottom: 0.1em;
+		}
+		.description {
+			font-family: $font-text-caps;
+			text-transform: lowercase;
+		}
+		.meta {
+			font-style: italic;
+		}
+	}
+	article {
+		h1 {
+			position: relative;
+			display: block;
+			text-align: center;
+			font-family: $font-header-h1;
+			font-size: 1.5em;
+			padding-top: 0.6667em;
+			padding-bottom: 0.5em;
+			margin-bottom: 0.6667em;
+			&:after {
+				content: "";
+				position: absolute;
+				left: 25%;
+				right: 25%;
+				bottom: 0;
+				border-bottom: 4px double #ccc;
+			}
+		}
+		h2 {
+			font-family: $font-header-h1;
+			font-size: 1.5em;
+			padding-top: 1em;
+			margin-bottom: 1em;
+		}
+		h3 {
+			font-family: $font-text-caps-bold;
+			text-transform: uppercase;
+			padding-top: 1em;
+			margin-bottom: 1em;
+		}
+		a {
+			font-weight: bold;
+			@include border-radius(8px);
+			&:after {
+				content: "\00B0";
+				color: #933;
+			}
+			&:hover {
+				background: #fbf3f3;
+			}
+		}
+		ul {
+			li {
+				margin-left: 1.5em;
+				margin-bottom: 1em;
+				padding-left: 1em;
+				&:before {
+					font-family: $font-text-index;
+					content: "•";
+					float: left;
+					margin-left: -2.5em;
+					margin-top: 0.1rem;
+				}
+			}
+		}
+		ol {
+			counter-reset: list-number;
+			li {
+				position: relative;
+				margin-left: 1.5em;
+				margin-bottom: 1em;
+				padding-left: 1em;
+				&:before {
+					position: absolute;
+					font-family: $font-text-index;
+					content: counter(list-number);
+					counter-increment: list-number;
+					margin-left: -2.5em;
+					margin-top: 0.1rem;
+				}
+			}
+		}
+		p + ul,
+		p + ol,
+		figure + ul,
+		figure + ol,
+		figure + figure,
+		figure + p,
+		p + p,
+		p + figure,
+		blockquote + figure,
+		blockquote + p {
+			padding-top: 1em;
+		}
+		figure {
+			margin: 0 -1em;
+		}
+		figcaption {
+			font-size: 0.8em;
+			line-height: 1.3em;
+			color: gray;
+			padding: 0.625em 1.25em 0;
+		}
+		.smallcaps {
+			font-family: $font-text-caps;
+			text-transform: lowercase;
+		}
+		.video {
+			@include animation-fade-in(0.5s);
+		}
+		img {
+			opacity: 0;
+			@include transition(opacity, 0.3s, ease-in);
+		}
+		em {
+			font-style: italic;
+		}
+		strong {
+			font-weight: bold;
+		}
+		blockquote {
+			background: #f0f0f0;
+			padding: 0.5em 1em;
+			margin-top: 1em;
+		}
+	}
+}
+
+@media screen and (min-width: 600px) {
+
+	.page-article {
+		margin-bottom: 2em;
+		padding: 0 2em;
+		header {
+			padding: 2em 0;
+		}
+		article {
+			h1 {
+				padding-top: 1.3334em;
+			}
+			ul,
+			ol {
+				margin-bottom: 2em;
+			}
+			figure {
+			margin: 0 -2em;
+			}
+			figcaption {
+				padding: 0.625em 2.5em 0;
+			}
+			h2,
+			p + ul,
+			p + ol,
+			figure + ul,
+			figure + ol,
+			p + figure,
+			figure + p,
+			figure + figure,
+			blockquote + figure {
+				padding-top: 2em;
+			}
+		}
+	}
+
+}
+
+/* ------------------- */
+/* Projects Section    */
+/* ------------------- */
+
+@import "_project.scss";
+
+/* ------------------- */
+/* Recommended Section */
+/* ------------------- */
+
+@import "_recommended.scss";
+
+/* ------------------- */
+/* About Section       */
+/* ------------------- */
+
+@import "_about.scss";
+
+/* ------------------- */
+/* Notes Section       */
+/* ------------------- */
+
+@import "_notes.scss";
+
+/* ------------------- */
+/* Email Signup        */
+/* ------------------- */
+
+.newsletter {
+	max-width: 100%;
+	width: 100%;
+	.smallcaps {
+			font-family: $font-text-caps;
+			text-transform: lowercase;
+		}
+	.email {
+		display: inline-block;
+		width: 79%;
+		height: 3rem;
+		margin: 0 0 18px 0;
+		padding: 0 18px 2px 18px;
+		border: 1px solid #ccc;
+		font-size: 1em;
+		color: #030303;
+		background-color: #fff;
+		@include border-box;
+		font-family: $font-text-regular;
+		text-transform: lowercase;
+		@include border-radius(3px);	
+	}
+	.button {
+	@include border-box;
+	font-family: $font-text-regular;
+  float: right;
+  display: inline-block;
+font-size: 1em;
+  color: black;
+  width: 20%;
+  height: 3rem;
+  margin: 0 0 18px 0;
+  padding: 0 18px 4px 18px;
+@include border-radius(6px);
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+}
+}

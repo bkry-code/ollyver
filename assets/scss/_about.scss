@@ -1,0 +1,161 @@
+.page-table {
+	max-width: 34em;
+	margin: 0 auto 1em;
+	@include border-box;
+	position: relative;
+	@include tablesaw-stack(600px);
+	h2 {
+		font-family: Advocate C53;
+		text-transform: lowercase;
+		font-size: 1.5em;
+		padding: 0 0.6667em 0.6em;
+		border-bottom: 4px double #ccc;
+	}
+	h3 {
+		font-family: Concourse T6;
+	}
+	.no-print-section {
+		position: absolute;
+		top: 0.1em;
+		left: 36%;
+	}
+	table{
+		table-layout: fixed;
+		width: 100%;
+	}
+}
+
+.tablesaw {
+	empty-cells: show;
+	max-width: 100%;
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 1em;
+	th,
+	td {
+		@include border-box;
+		padding: .2em 1em;
+		text-align: left;
+		display: block;
+		.tablesaw-cell-label {
+			font-family: $font-text-caps-bolder;
+			text-transform: lowercase;
+			display: block;
+			padding: 0 .6em 0 0;
+			@include border-box;
+			width: 35%;
+			display: inline-block;	
+		}
+		.tablesaw-cell-content {
+			display: inline-block;
+			width: 65%;
+		}
+		.tablesaw-cell-label-top {
+			display: block;
+			padding: .4em 0;
+			margin: .4em 0;
+		}
+		.type,
+		.note,
+		.director {
+			padding-top: 0.3em;
+			font-size: 0.8em;
+			line-height: 1.2em;
+			display: block;
+			font-style: italic;
+		}
+	}
+	tr {
+		clear: both;
+		display: table-row;
+		border-bottom: 1px solid #ccc;
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+	thead {
+		font-family: $font-text-caps-bolder;
+		text-transform: lowercase;
+		border-bottom: 1px solid #ccc;
+		tr {
+			background: white !important;
+			&:first-child {
+				th {
+					padding-top: 0.6em;
+					padding-bottom: 0.8em;
+				}
+			}
+		}
+		th {
+			font-family: $font-text-caps-bolder;
+			font-weight: normal;
+			text-transform: lowercase;
+			text-align: left;
+		}
+		.no-print {
+			color: #ee573c;
+		}
+	}
+	tbody {
+		td {
+			vertical-align: top;
+			@include hyphens(none);
+		}
+		a {
+			display: block;
+		}
+		th.group {
+			b.tablesaw-cell-label {
+				display: none !important;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 599px) {
+
+	.tablesaw {
+		td,
+		th {
+			&:first-child {
+				padding: .4em 1em .2em;
+			}
+			&:last-child {
+				padding: .2em 1em .4em;
+			}
+		}
+	}
+
+}
+
+@media screen and (min-width: 600px) {
+
+	.page-table {
+		padding: 0 1em;
+		.no-print-section {
+			left: auto;
+			right: 2em;
+		}
+	}
+
+	.tablesaw {
+		margin-bottom: 2em;
+		table-layout : fixed;
+		th,
+		td {
+			padding: .8em 1em;
+			&.year,
+			&.no-print-btn {
+				width: 15%;
+				text-align: right;
+			}
+			.tablesaw-cell-label {
+				width: auto;
+			}
+			.tablesaw-cell-content {
+				width: auto;
+			}
+		}
+	}
+
+}

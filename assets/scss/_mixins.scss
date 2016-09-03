@@ -1,0 +1,137 @@
+@mixin border-box {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin column($count, $gap) {
+	-moz-column-count: $count;
+	-webkit-column-count: $count;
+	-o-column-count: $count;
+	-ms-column-count: $count;
+	column-count: $count;
+	-moz-column-gap: $gap;
+	-webkit-column-gap: $gap;
+	-o-column-gap: $gap;
+	-ms-column-gap: $gap;
+	column-gap: $gap;
+}
+
+@mixin column-break-avoid {
+	-moz-column-break-inside: avoid;
+	-webkit-column-break-inside: avoid;
+	-o-column-break-inside: avoid;
+	-ms-column-break-inside: avoid;
+	column-break-inside: avoid;
+	-moz-break-inside: avoid-column;
+	-webkit-break-inside: avoid-column;
+	-o-break-inside: avoid-column;
+	-ms-break-inside: avoid-column;
+	break-inside: avoid-column;
+}
+
+@mixin border-radius($border-radius) {
+	-webkit-border-radius: $border-radius;
+	-moz-border-radius: $border-radius;
+	border-radius: $border-radius;
+}
+
+@mixin transition($property, $duration, $easing) {
+	-webkit-transition: $property $duration $easing;
+	-moz-transition: $property $duration $easing;
+	-ms-transition: $property $duration $easing;
+	-o-transition: $property $duration $easing;
+	transition: $property $duration $easing;
+}
+
+@mixin no-user-select {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin hyphens($type) {
+	-moz-hyphens: $type;
+	-webkit-hyphens: $type;
+	-o-hyphens: $type;
+	-ms-hyphens: $type;
+	hyphens: $type;
+}
+
+@mixin tablesaw-stack-max {
+	.tablesaw {
+		thead {
+			td,
+			th {
+				display: none;
+			}
+		}
+		tbody {
+			td,
+			th {
+				clear: left;
+				float: left;
+				width: 100%;
+			}
+		}
+		td:empty,
+		th:empty {
+			display: none;
+		}
+	}
+	.tablesaw-cell-label {
+		vertical-align: top;
+	}
+	.tablesaw-cell-content {
+		max-width: 67%;
+		display: inline-block;
+	}
+}
+
+@mixin tablesaw-stack-min {
+	.tablesaw {
+		tr {
+			display: table-row;
+		}
+		td,
+		th {
+			display: table-cell;
+			margin: 0;
+			// Hide the labels in each cell
+			.tablesaw-cell-label {
+				display: none !important;
+			}
+		}
+		thead {
+			td,
+			th {
+				display: table-cell;
+				margin: 0;
+			}
+		}
+	}
+}
+
+$use-respond-mixins: false !default;
+@mixin tablesaw-stack($breakpoint: 40em) {
+	@if $use-respond-mixins {
+		@include respond-max($breakpoint - .0625) {
+			@include tablesaw-stack-max;
+		}
+		@include respond-min($breakpoint) {
+			@include tablesaw-stack-min;
+		}
+	}
+	@else {
+		@media (max-width: ($breakpoint - .0625)) {
+			@include tablesaw-stack-max;
+		}
+		@media (min-width: $breakpoint) {
+			@include tablesaw-stack-min;
+		}
+	}
+}
