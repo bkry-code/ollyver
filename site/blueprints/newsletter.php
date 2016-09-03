@@ -10,6 +10,14 @@ fields:
   text:
     label: Text
     type:  markdown
+  formaction:
+    label: MailChimp Form Action
+    type: text
+    help: Don't mess around with this line.
+  antirobot:
+    label: MailChimp Anti Robot Code
+    type: text
+    help: Don't mess around with this line.
   togglenewsletter:
     label: Display Newsletter on Home Page
     type: toggle
