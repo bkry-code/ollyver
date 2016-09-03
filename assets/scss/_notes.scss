@@ -13,13 +13,13 @@
 		}
 	}
 	h3 {
-		font-family: Concourse T3;
+		font-family: $font-text-regular;
 		font-size: 1.5em;
 		display: inline-block;
 		padding-right: 0.6667em;
 	}
 	span {
-		color: #ccc;
+		color: $color-pro-grey;
 		display: block;
 	}
 	a {

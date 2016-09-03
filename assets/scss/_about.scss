@@ -9,10 +9,10 @@
 		text-transform: lowercase;
 		font-size: 1.5em;
 		padding: 0 0.6667em 0.6em;
-		border-bottom: 4px double #ccc;
+		border-bottom: 4px double $color-pro-grey;
 	}
 	h3 {
-		font-family: Concourse T6;
+		font-family: $font-header-h1;
 	}
 	.no-print-section {
 		position: absolute;
@@ -68,7 +68,7 @@
 	tr {
 		clear: both;
 		display: table-row;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid $color-pro-grey;
 		&:last-child {
 			border-bottom: none;
 		}
@@ -76,7 +76,7 @@
 	thead {
 		font-family: $font-text-caps-bolder;
 		text-transform: lowercase;
-		border-bottom: 1px solid #ccc;
+		border-bottom: 1px solid $color-pro-grey;
 		tr {
 			background: white !important;
 			&:first-child {
