@@ -16,7 +16,7 @@ site/accounts/*
 /content/*
 assets/avatars/*
 /assets/fonts/*
-/assets/css/*
+/assets/css/default.css
 
 # composer    #
 ###############

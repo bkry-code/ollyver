@@ -1,0 +1,54 @@
+.newsletter {
+	max-width: 100%;
+	width: 100%;
+	padding-top: 1em;
+	.smallcaps {
+			font-family: $font-text-caps;
+			text-transform: lowercase;
+		}
+	.email {
+		display: inline-block;
+		width: 79%;
+		height: 3rem;
+		margin: 0 0 18px 0;
+		padding: 0 18px 2px 18px;
+		border: 2px solid $color-pro-green;
+		font-size: 1em;
+		color: #030303;
+		background-color: #fff;
+		@include border-box;
+		font-family: $font-text-regular;
+		text-transform: lowercase;
+		@include border-radius(6px);
+		&:focus {
+			outline: 0;
+		}
+	}
+	.button {
+		@include border-box;
+		font-family: $font-header-h1;
+		float: right;
+		display: inline-block;
+		font-size: 1em;
+		color: white;
+		width: 20%;
+		height: 3rem;
+		margin: 0 0 18px 0;
+		padding: 0 18px 4px 18px;
+		@include border-radius(6px);
+		border: 2px solid $color-pro-green;
+		background-color: $color-pro-green;
+		cursor: pointer;
+	}
+	form {
+		margin-top: 1em;
+	}
+}
+
+@media screen and (min-width: 600px) {
+
+	.newsletter {
+		padding-top: 2em;
+	}
+
+}

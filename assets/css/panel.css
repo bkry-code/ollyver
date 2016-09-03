@@ -1,0 +1,11 @@
+/* Add highlight color to markdown tag segments */
+
+.cm-s-visualmarkdown .cm-kirbytext-open,
+.cm-s-visualmarkdown .cm-kirbytext-close {
+	color: #f00;
+}
+
+.cm-s-visualmarkdown .cm-kirbytext-attribute {
+	color: #8dae28;
+
+}

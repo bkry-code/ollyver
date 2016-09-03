@@ -11,6 +11,7 @@ $font-text-caps: Concourse C3;
 $font-text-caps-bolder: Concourse C4;
 $font-text-caps-bold: Concourse C6;
 $font-text-index: Concourse T3 Index;
+$font-text-slab: Advocate C53;
 
 $font-header-h1: Concourse T6;
 
@@ -237,45 +238,7 @@ $color-pro-green: #C9CEC9;
 @import "_notes.scss";
 
 /* ------------------- */
-/* Email Signup        */
+/* Newsletter Signup   */
 /* ------------------- */
 
-.newsletter {
-	max-width: 100%;
-	width: 100%;
-	.smallcaps {
-			font-family: $font-text-caps;
-			text-transform: lowercase;
-		}
-	.email {
-		display: inline-block;
-		width: 79%;
-		height: 3rem;
-		margin: 0 0 18px 0;
-		padding: 0 18px 2px 18px;
-		border: 1px solid #ccc;
-		font-size: 1em;
-		color: #030303;
-		background-color: #fff;
-		@include border-box;
-		font-family: $font-text-regular;
-		text-transform: lowercase;
-		@include border-radius(3px);	
-	}
-	.button {
-	@include border-box;
-	font-family: $font-text-regular;
-  float: right;
-  display: inline-block;
-font-size: 1em;
-  color: black;
-  width: 20%;
-  height: 3rem;
-  margin: 0 0 18px 0;
-  padding: 0 18px 4px 18px;
-@include border-radius(6px);
-  border: 0;
-  background-color: white;
-  cursor: pointer;
-}
-}
+@import "_newsletter.scss"

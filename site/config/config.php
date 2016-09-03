@@ -85,3 +85,6 @@ c::set('plugin.drafts.widget.nodrafts', 'No drafts... Start writing today!');
 c::set('plugin.ga', true);
 c::set('plugin.ga.id', 'UA-83418702-1');
 c::set('plugin.ga.debug', false);
+
+// Custom panel CSS (for modifying markdown field tag appearance)
+c::set('panel.stylesheet', 'assets/css/panel.css');
