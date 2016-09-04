@@ -13,11 +13,12 @@ sftp-config.json
 # this also works for kirby multisite
 site/accounts/*
 site/cache/*
-/thumbs/*
-/content/*
+site/config/*
+thumbs/*
+content/*
 assets/avatars/*
-/assets/fonts/*
-/assets/css/default.css
+assets/fonts/*
+assets/css/default.css
 
 # composer    #
 ###############
