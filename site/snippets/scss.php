@@ -5,10 +5,8 @@
  * @author    Bart van de Biezen <bart@bartvandebiezen.com>
  * @link      https://github.com/bartvandebiezen/kirby-v2-scssphp
  * @return    CSS and HTML
- * @version   1.0.1
+ * @version   0.9.1
  */
-
-use Leafo\ScssPhp\Compiler;
 
 // Using realpath seems to work best in different situations.
 $root = realpath(__DIR__ . '/../..');
@@ -20,23 +18,10 @@ $CSS          = $root . '/assets/css/'  . $template . '.css';
 $CSSKirbyPath = 'assets/css/' . $template . '.css';
 
 // Set default SCSS if there is no SCSS for current template. If template is default, skip check.
-if ($template == 'default' or !file_exists($SCSS)) {
+if ($template = 'default' or !file_exists($SCSS)) {
 	$SCSS         = $root . '/assets/scss/default.scss';
 	$CSS          = $root . '/assets/css/default.css';
 	$CSSKirbyPath = 'assets/css/default.css';
-}
-
-// For when the plugin should check if partials are changed. If any partial is newer than the main SCSS file, the main SCSS file will be 'touched'. This will trigger the compiler later on, on this server and also on another environment when synced.
-if (c::get('scssNestedCheck')) {
-	$SCSSDirectory = $root . '/assets/scss/';
-	$files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($SCSSDirectory));
-	foreach ($files as $file) {
-		if (pathinfo($file, PATHINFO_EXTENSION) == "scss" && filemtime($file) > filemtime($SCSS)) {
-			touch ($SCSS);
-			clearstatcache();
-			break;
-		}
-	}
 }
 
 // Get file modification times. Used for checking if update is required and as version number for caching.
@@ -48,10 +33,10 @@ if (!file_exists($CSS) or $SCSSFileTime > $CSSFileTime ) {
 
 	// Activate library.
 	require_once $root . '/site/plugins/scssphp/scss.inc.php';
-	$parser = new Compiler();
+	$parser = new scssc();
 
 	// Setting compression provided by library.
-	$parser->setFormatter('Leafo\ScssPhp\Formatter\Compressed');
+	$parser->setFormatter('scss_formatter_compressed');
 
 	// Setting relative @import paths.
 	$importPath = $root . '/assets/scss';
