@@ -53,10 +53,11 @@
 			margin-bottom: 1em;
 		}
 		a {
-			font-weight: bold;
-			@include border-radius(8px);
+			//font-weight: bold;
+			border-bottom: 1px solid #1e1e1e;
+			//@include border-radius(8px);
 			&:after {
-				content: "\00B0";
+				//content: "\00B0";
 				color: $color-pro-red;
 			}
 			&:hover {
